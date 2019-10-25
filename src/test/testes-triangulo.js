@@ -4,7 +4,7 @@ const Triangulo = require('../triangulo');
 const assert = chai.assert;
 
 
-describe('Verificando se é escaleno', () => {
+describe('Verificando se o objeto de conversão existe', () => {
   it('Teste: Os três lados são diferentes', () => {
     let triangulo = new Triangulo(7, 5, 10)
     assert.equal(triangulo.tipo(), "Escaleno");
