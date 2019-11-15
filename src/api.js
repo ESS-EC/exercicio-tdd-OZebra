@@ -79,12 +79,12 @@ app.get('/converterTemperatura', (req,res) => {
 })
 
 
-app.listen(5000, (err)=>{
+/*app.listen(5000, (err)=>{
     if(err){
         console.log('Falha ao conectar ao localhost:5000');
     }else{
         console.log('Ouvindo na porta 5000...')
     }
-})
+})*/
 
 module.exports = app;
