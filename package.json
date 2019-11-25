@@ -4,7 +4,7 @@
   "description": "Projeto em Node.js para exercitar o conceito de test cases, inspirado no exemplo do livro \"The Art of Software Testing\"",
   "main": "index.js",
   "scripts": {
-    "test": "mocha src/test/*.js"
+    "test": "npx mocha src/test/*.js"
   },
   "author": "Kiev Gama",
   "license": "ISC",
@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "chai-http": "^4.3.0",
-    "express": "^4.17.1"
+    "chromedriver": "^78.0.1",
+    "express": "^4.17.1",
+    "selenium-webdriver": "^4.0.0-alpha.5"
   }
 }
