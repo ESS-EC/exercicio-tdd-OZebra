@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-brclear">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Api temperatura</title>
+    <form id='myForm'>
+        <input type = 'text' id = 'de' placeholder="Converter de: ">
+        <input type = 'text' id = 'para' placeholder="Converter para: ">
+        <input type = 'text' id = 'valor' placeholder="Valor ">
+        <input type = 'submit' id = 'button' value = 'Submit' onclick="myFunction()">
+    </form>
+
+    <h1 id = 'resp'></h1>
+
+    <script>
+
+        const createNode = (elem) => {
+            return document.createTextNode(elem);
+        };
+
+        const appendNode = (parent, elem) => {
+            parent.appendChild(elem);
+        };
+
+        document.getElementById("button").addEventListener("click", function(event){
+            event.preventDefault()
+        });
+
+        function myFunction() {
+            const url = new URL('http://localhost:5050/converterTemperatura')
+
+            var params = {
+                de: document.getElementById("de").value,
+                para: document.getElementById("para").value,
+                valor: document.getElementById("valor").value 
+            }
+
+            url.search = new URLSearchParams(params)
+            h_1 = document.getElementById('resp')
+
+            fetch(url)
+            .then(res => res.json())
+            .then(res => {
+                console.log('valor = ' + res.resposta)
+                while(h_1.firstChild){
+                    h_1.removeChild(h_1.firstChild)
+                }
+                if(res.status === 'ok'){
+                    myNode = createNode(res.resposta)
+                }else{
+                    myNode = createNode('Error')
+                }
+                appendNode(h_1, myNode)
+            });
+            //document.getElementById('resp').appendChild(response);
+            
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

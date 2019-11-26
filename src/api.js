@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
-
-
-
+const cors = require('cors')
+app.use(cors())
 app.get('/converterTemperatura', (req,res) => {
 
     valor = parseInt(req.query.valor)
@@ -79,12 +78,12 @@ app.get('/converterTemperatura', (req,res) => {
 })
 
 
-/*app.listen(5000, (err)=>{
+app.listen(5050, (err)=>{
     if(err){
         console.log('Falha ao conectar ao localhost:5000');
     }else{
-        console.log('Ouvindo na porta 5000...')
+        console.log('Ouvindo na porta 5050...')
     }
-})*/
+})
 
 module.exports = app;
